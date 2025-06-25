@@ -1,0 +1,58 @@
+@startuml
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+
+class Main {
+  +main()
+}
+
+class Server {
+  +Init()
+  +RegisterRoutes()
+}
+
+class Config {
+  +Load()
+  +Port : int
+}
+
+class AuthService {
+  +Register()
+  +Login()
+}
+
+class TokenService {
+  +Generate()
+  +Validate()
+}
+
+class SQLiteDB {
+  +FindUserByEmail()
+  +SaveUser()
+}
+
+class User
+
+class AnalyzerService {
+  +Analyze()
+}
+
+
+' Flow from main
+Main --> Server : start()
+
+' Server sets up components
+Server --> Config : uses
+Server --> AuthService : injects
+Server --> AnalyzerService : injects
+
+' AuthService dependencies
+AuthService --> SQLiteDB
+AuthService --> TokenService
+AuthService --> User
+
+
+' DB access
+SQLiteDB --> User
+
+@enduml

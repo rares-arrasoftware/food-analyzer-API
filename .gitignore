@@ -1,0 +1,36 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go build artifacts
+/bin/
+/dist/
+/build/
+*.log
+
+# Go cache & modules
+/.cache/
+/vendor/
+
+# SQLite DB
+*.db
+
+# IDE/editor stuff
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Docker
+.env
+docker-compose.override.yml

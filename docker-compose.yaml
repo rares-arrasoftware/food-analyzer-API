@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  food-analyzer:
+    build: .
+    container_name: food-analyzer-api
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./prod.db:/app/prod.db
